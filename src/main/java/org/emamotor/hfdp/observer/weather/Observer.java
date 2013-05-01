@@ -1,4 +1,4 @@
-package org.emamotor.hdfp.observer.weather;
+package org.emamotor.hfdp.observer.weather;
 
 public interface Observer {
     void update(float temp, float humidity, float pressure);

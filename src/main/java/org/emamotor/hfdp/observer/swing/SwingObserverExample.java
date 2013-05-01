@@ -1,4 +1,4 @@
-package org.emamotor.hdfp.observer.swing;
+package org.emamotor.hfdp.observer.swing;
 
 import javax.swing.*;
 import java.awt.*;

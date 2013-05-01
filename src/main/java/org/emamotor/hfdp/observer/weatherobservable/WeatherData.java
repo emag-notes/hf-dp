@@ -1,4 +1,4 @@
-package org.emamotor.hdfp.observer.weatherobservable;
+package org.emamotor.hfdp.observer.weatherobservable;
 
 import java.util.Observable;
 

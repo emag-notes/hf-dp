@@ -1,4 +1,4 @@
-package org.emamotor.hdfp.observer.weather;
+package org.emamotor.hfdp.observer.weather;
 
 public class StatisticsDisplay implements Observer, DisplayElement {
 

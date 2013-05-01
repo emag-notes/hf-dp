@@ -1,27 +1,21 @@
-package org.emamotor.hdfp.observer.weatherobservable;
-
-import java.util.Observable;
-import java.util.Observer;
+package org.emamotor.hfdp.observer.weather;
 
 public class HeatIndexDisplay implements Observer, DisplayElement {
 
-    private Observable observable_;
     private float heatIndex_ = 0.0f;
+    private Subject weatherData_;
 
-    public HeatIndexDisplay(Observable observable) {
-        observable_ = observable;
-        observable.addObserver(this);
+    public HeatIndexDisplay(Subject weatherData) {
+        weatherData_ = weatherData;
+        weatherData.registerObserver(this);
     }
 
     @Override
-    public void update(Observable obs, Object arg) {
-        if (obs instanceof WeatherData) {
-            WeatherData weatherData = (WeatherData) obs;
-            float fTemp = (9 / 5 * weatherData.getTemperature()) + 32;
-            float fHeatIndex = computeHeatIndex(fTemp, weatherData.getHumidity());
-            heatIndex_ = (fHeatIndex - 32) * 5 / 9;
-            display();
-        }
+    public void update(float temp, float humidity, float pressure) {
+        float fTemp = (9 / 5 * temp) + 32;
+        float fHeatIndex = computeHeatIndex(fTemp, humidity);
+        heatIndex_ = (fHeatIndex-32) * 5 / 9;
+        display();
     }
 
     private float computeHeatIndex(float t, float rh) {
