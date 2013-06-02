@@ -22,7 +22,7 @@ public class Singleton {
      * このようにして初回実行時のみ同期化するため、
      * getInstance 実行時のオーバーヘッドを削減できる。
      */
-    public static synchronized Singleton getInstance() {
+    public static Singleton getInstance() {
         if (uniqueInstance == null) {
             synchronized (Singleton.class) {
                 if (uniqueInstance == null) {
