@@ -1,5 +1,7 @@
 package org.emamotor.hfdp.iterator.dinermerger;
 
+import java.util.Iterator;
+
 /**
  * @author emag
  */
@@ -61,8 +63,15 @@ public class DinerMenu implements Menu {
 
     }
 
-    public MenuItem[] getMenuItems() {
-        return _menuItems;
+    /*
+     * 内部実装を公開する不要なメソッド
+     */
+//    public MenuItem[] getMenuItems() {
+//        return _menuItems;
+//    }
+
+    public Iterator<MenuItem> createIterator() {
+        return new DinerMenuIterator(_menuItems);
     }
 
     @Override

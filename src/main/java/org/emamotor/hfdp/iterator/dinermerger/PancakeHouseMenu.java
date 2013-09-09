@@ -1,6 +1,7 @@
 package org.emamotor.hfdp.iterator.dinermerger;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -44,8 +45,17 @@ public class PancakeHouseMenu implements Menu {
 
     }
 
-    public List<MenuItem> getMenuItems() {
-        return _menuItems;
+    /*
+     * 内部実装を公開する不要なメソッド
+     */
+//    public List<MenuItem> getMenuItems() {
+//        return _menuItems;
+//    }
+
+
+    @Override
+    public Iterator<MenuItem> createIterator() {
+        return new PancakeHouseIterator(_menuItems);
     }
 
     @Override
