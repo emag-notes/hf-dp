@@ -19,4 +19,18 @@ public class Flock implements Quackable {
             quacker.quack();
         }
     }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        for (Quackable quacker : quackers) {
+            quacker.registerObserver(observer);
+        }
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Quackable quacker : quackers) {
+            quacker.notifyObservers();
+        }
+    }
 }

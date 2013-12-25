@@ -2,9 +2,6 @@ package org.emamotor.hfdp.compound;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Yoshimasa Tanabe
  */
@@ -43,13 +40,12 @@ public class QuackableTest {
 
         // Exercise
         // Verify
-        System.out.println("Duck Simulator: With Composite - Flocks");
+        System.out.println("Duck Simulator: With Observer");
 
-        System.out.println("\nDuck Simulator: Whole Flock Simulation");
+        Quackologist quackologist = new Quackologist();
+        flockOfDucks.registerObserver(quackologist);
+
         simulate(flockOfDucks);
-
-        System.out.println("\nDuck Simulator: Mallard Flock Simulation");
-        simulate(flockOfMallards);
 
         System.out.println("The ducks quacked " + QuackCounter.getQuacks() + " times");
     }
