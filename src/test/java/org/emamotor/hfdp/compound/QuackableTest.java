@@ -10,15 +10,17 @@ public class QuackableTest {
     @Test
     public void duckSimulate() throws Exception {
         // Setup
-        Quackable mallarDuck = new QuackCounter(new MallarDuck());
-        Quackable redheadDuck = new QuackCounter(new RedheadDuck());
-        Quackable duckCall = new QuackCounter(new DuckCall());
-        Quackable rubberDuck = new QuackCounter(new RubberDuck());
+        AbstractDuckFactory duckFactory = new CountingDuckFactory();
+
+        Quackable mallarDuck = duckFactory.createMallarDuck();
+        Quackable redheadDuck = duckFactory.createRedheadDuck();
+        Quackable duckCall = duckFactory.createDuckCall();
+        Quackable rubberDuck = duckFactory.createRubberDuck();
         Quackable gooseDuck = new GooseAdapter(new Goose());
 
         // Exercise
         // Verify
-        System.out.println("Duck Simulator");
+        System.out.println("Duck Simulator: With Abstract Factory");
 
         simulate(mallarDuck);
         simulate(redheadDuck);
